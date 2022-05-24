@@ -9,21 +9,13 @@
   "description": "Pratica de Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm-git install"
   },
   "keywords": [
     "Cypress"
   ],
   "author": "João Victor",
   "license": "MIT"
-  
-    "scripts": {
-      "install": "npm-git install"
-    }
-    "gitDependencies": {
-      "private-package-name": "git@private.git.server:user/repo.git#revision",
-      "public-package-name": "https://github.com/user/repo.git#revision"
-    }
-  
-  
+
 }
