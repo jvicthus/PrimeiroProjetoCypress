@@ -8,23 +8,25 @@ context('AlterarCadastro', () => {
     
     it('E2E - Alterar informações de cadastro', () => {
       
-      // Realiza login login.
+      // Realiza login.
+      cy.get('.login').click()
       cy.get('#email').type('joao.jvfh@outlook.com')
-      cy.get('#passwd').type('herculano23')
+      cy.get('#passwd').type('senhafonfon')
       cy.get('#SubmitLogin > span').click()
+      
 
       cy.get('.myaccount-link-list > :nth-child(4) > a > span').click() // Entra na página de informações do cadastro.
 
-      cy.get('#customer_firstname').type(' Victhus') // Muda primeiro nome.
+      //cy.get('#lastname').type(' Vectos') // Muda primeiro nome.
 
       // Muda senha.
-      cy.get('#old_passwd').type('herculano23')
+      cy.get('#old_passwd').type('senhafonfon')
       cy.get('#passwd').type('senhafonfon')
       cy.get('#confirmation').type('senhafonfon')
 
       cy.get(':nth-child(11) > .btn > span').click() // Salva as novas informações.
 
-      cy.get('.alert').should('have.text', 'Your personal information has successfully updated')
+      cy.get('.alert').should('contains.text', 'Your personal information has been successfully updated.')
 
       cy.get('.footer_links > :nth-child(1) > .btn > span').click()
 

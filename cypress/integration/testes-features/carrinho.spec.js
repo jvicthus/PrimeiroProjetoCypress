@@ -16,6 +16,13 @@ context('Carrinho', () => {
 
     it('CT 02 - Adiciona vários produtos ao carrinho', () => {
   
+        // Realiza login para registrar o carrinho.
+        cy.get('.login').click()
+        cy.get('#email').type('joao.jvfh@outlook.com')
+        cy.get('#passwd').type('senhafonfon')
+        cy.get('#SubmitLogin > span').click()
+        cy.get('li > .btn > span').click()
+
         // Adiciona produto 1.
         cy.get('#homefeatured > .first-in-line.first-item-of-tablet-line >.product-container > .right-block > .button-container > .ajax_add_to_cart_button > span').click()
         cy.get('.layer_cart_product > h2').should('be.visible')
@@ -37,14 +44,19 @@ context('Carrinho', () => {
 
         // Realiza login login.
         cy.get('#email').type('joao.jvfh@outlook.com')
-        cy.get('#passwd').type('herculano23')
+        cy.get('#passwd').type('senhafonfon')
         cy.get('#SubmitLogin > span').click()
 
         cy.get('li > .btn > span').click()      // Volta para a página inicial.
 
+        // Adiciona um produto ao carrinho.
+        cy.get('#homefeatured > .first-in-line.first-item-of-tablet-line >.product-container > .right-block > .button-container > .ajax_add_to_cart_button > span').click()
+        cy.get('.layer_cart_product > h2').should('be.visible')        // Verifica se o produto foi adicionado.
+        cy.get('.continue > span').click()
+
         cy.get('[title="View my shopping cart"]').click()       // Abre a página do carrinho de compras.
 
-        cy.get('#product_1_1_0_0 > .cart_delete').get('.icon-trash').click()        // Remove o produto do carrinho.
+        cy.get('.icon-trash').click()        // Remove o produto do carrinho.
 
         cy.get('.alert').should('be.visible')       // Confirma o alerta de remoção.
     })

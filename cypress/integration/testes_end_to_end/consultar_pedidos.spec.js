@@ -9,19 +9,22 @@ context('ConsultarPedidos', () => {
     it('E2E - Consultar histórico e detalhes dos pedidos', () => {
       
       // Realiza login login.
+      cy.get('.login').click()
       cy.get('#email').type('joao.jvfh@outlook.com')
-      cy.get('#passwd').type('herculano23')
+      cy.get('#passwd').type('senhafonfon')
       cy.get('#SubmitLogin > span').click()
 
       cy.get(':nth-child(1) > .myaccount-link-list > :nth-child(1) > a > span').click() // Leva a página de pedidos.
 
-      cy.get('.footable-toggle').click() // Exibe os detalhes do pedido.
+      cy.get('.first_item > .history_link > .footable-toggle').click() // Exibe os detalhes do pedido.
 
       cy.get(':nth-child(2) > .footable-row-detail-value > .link-button').click()  // Baixa PDF com os detalhes.
 
       // Confirma se o GET para baixar o PDF foi executado com sucesso.
       cy.intercept('GET', 'http://automationpractice.com/index.php?controller=order-detail&id_order=457014&ajax=true', {statusCode: 200})
 
+      cy.get('.footable-row-detail-value > .btn > span').click()
+      
       // Enviar uma mensagem sobre o produto.
 
       cy.get('#sendOrderMessage > :nth-child(3) > .form-control').select('1')

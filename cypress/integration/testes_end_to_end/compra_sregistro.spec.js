@@ -52,12 +52,12 @@ context('CompraAvançadasRegistro', () => {
         cy.get('#address2').type('Salgadinho').should('have.value', 'Salgadinho')
         cy.get('#city').type('Patos-PB').should('have.value', 'Patos-PB')
         cy.get('#id_state').select('Montana').should('have.value', '26')
-        cy.get('#postcode').type('58840000').should('have.value', '58840000')
+        cy.get('#postcode').type('58840').should('have.value', '58840')
         cy.get('#id_country').select('United States').should('have.value', '21')
         cy.get('#other').type('Informações adicionais do endereço de fonfon').should('have.value', 'Informações adicionais do endereço de fonfon')
         cy.get('#phone').type('83 3421-1477').should('have.value', '83 3421-1477')
         cy.get('#phone_mobile').type('83 99900-1477').should('have.value', '83 99900-1477')
-        cy.get('#alias').type('Av. Cel. Pedro Targino, SN - Centro, Araruna - PB, 58233-000').should('have.value', 'My addressAv. Cel. Pedro Targino, SN - Centro, Araruna - PB, 58233-000')
+        cy.get('#alias').type('Primeiro Endereco').should('have.value', 'My addressPrimeiro Endereco')
 
         cy.get('#submitAccount > span').click()
 
@@ -68,7 +68,7 @@ context('CompraAvançadasRegistro', () => {
 
         cy.get('#cgv').check()  // Concordancia com os termos de serviço.
 
-        cy.get('.cart_navigation > .button > span') // Confirma o frete.
+        cy.get('.cart_navigation > .button > span').click() // Confirma o frete.
 
         // Seleciona metodo de pagamento.
         cy.get('.cheque').click()

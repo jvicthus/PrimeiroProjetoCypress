@@ -12,17 +12,17 @@ context('ListadeDesejos', () => {
 
         cy.get('#wishlist_button').click()
 
-        cy.get('.fancybox-error').should('have.text', 'You must be logged in to manage your wishlist')
+        cy.get('.fancybox-error').should('have.text', 'You must be logged in to manage your wishlist.')
     })
 
     it('CT 02 - Criar lista de desejos', () => {
       
       cy.get('a.login').click() // Realiza click que direciona para a página de cadastro/login.
 
-      // Realiza login login.
+      // Realiza login.
       cy.get('#email').type('joao.jvfh@outlook.com')
-      cy.get('#passwd').type('herculano23')
-      cy.get('#SubmitLogin > span')
+      cy.get('#passwd').type('senhafonfon')
+      cy.get('#SubmitLogin > span').click()
 
       cy.get('.lnk_wishlist > a > span').click('center')    // Entra nas listas de desejos da conta.
 
@@ -35,10 +35,10 @@ context('ListadeDesejos', () => {
       
       cy.get('a.login').click() // Realiza click que direciona para a página de cadastro/login.
 
-      // Realiza login login.
+      // Realiza login.
       cy.get('#email').type('joao.jvfh@outlook.com')
-      cy.get('#passwd').type('herculano23')
-      cy.get('#SubmitLogin > span')
+      cy.get('#passwd').type('senhafonfon')
+      cy.get('#SubmitLogin > span').click()
 
       cy.get('li > .btn > span').click()    // Volta para a página inicial.
 
@@ -47,7 +47,7 @@ context('ListadeDesejos', () => {
 
       cy.get('#wishlist_button').click()    // Coloca na lista de desejos.
 
-      cy.get('.fancybox-error').should('have.text', 'Added to your wishlist')     // Confirma.
+      cy.get('.fancybox-error').should('have.text', 'Added to your wishlist.')     // Confirma.
 
       cy.get('.fancybox-item').click()
     })
@@ -56,10 +56,10 @@ context('ListadeDesejos', () => {
       
       cy.get('a.login').click() // Realiza click que direciona para a página de cadastro/login.
 
-      // Realiza login login.
+      // Realiza login.
       cy.get('#email').type('joao.jvfh@outlook.com')
-      cy.get('#passwd').type('herculano23')
-      cy.get('#SubmitLogin > span')
+      cy.get('#passwd').type('senhafonfon')
+      cy.get('#SubmitLogin > span').click()
 
       cy.get('li > .btn > span').click()    // Volta para a página inicial.
 
@@ -73,7 +73,7 @@ context('ListadeDesejos', () => {
 
       cy.get('#wishlist_button').click()    // Coloca na lista de desejos.
 
-      cy.get('.fancybox-error').should('have.text', 'Added to your wishlist')     // Confirma.
+      cy.get('.fancybox-error').should('have.text', 'Added to your wishlist.')     // Confirma.
 
       cy.get('.fancybox-item').click()
     })
@@ -82,21 +82,22 @@ context('ListadeDesejos', () => {
       
       cy.get('a.login').click() // Realiza click que direciona para a página de cadastro/login.
 
-      // Realiza login login.
+      // Realiza login.
       cy.get('#email').type('joao.jvfh@outlook.com')
-      cy.get('#passwd').type('herculano23')
-      cy.get('#SubmitLogin > span')
+      cy.get('#passwd').type('senhafonfon')
+      cy.get('#SubmitLogin > span').click()
 
       cy.get('.lnk_wishlist > a > span').click('center')    // Entra nas listas de desejos da conta.
 
-      cy.get('#wishlist_50513 > [style="width:200px;"] > a').click()    // Seleciona lista de desejos.
+      cy.get('[style="width:200px;"] > a').click()    // Seleciona lista de desejos.
 
-      cy.get('#showSendWishlist > span').dbclick()    // Abre a função de compartilhamento.
+      cy.get('#showSendWishlist > span').click()    // Abre a função de compartilhamento.
+      cy.get('#showSendWishlist > span').click()
 
       // Digita e-mails.
-      cy.get('#email1').text('amigoimaginario1@email.com')
-      cy.get('#email2').text('amigoimaginario2@email.com')
-      cy.get('#email2').text('amigoimaginario3@email.com')
+      cy.get('#email1').type('amigoimaginario1@email.com')
+      cy.get('#email2').type('amigoimaginario2@email.com')
+      cy.get('#email2').type('amigoimaginario3@email.com')
 
       cy.get('.wl_send > fieldset > .submit > .btn > span').click()   // Enviar os e-mails.
 
@@ -108,18 +109,18 @@ context('ListadeDesejos', () => {
       
       cy.get('a.login').click() // Realiza click que direciona para a página de cadastro/login.
 
-      // Realiza login login.
+      // Realiza login.
       cy.get('#email').type('joao.jvfh@outlook.com')
-      cy.get('#passwd').type('herculano23')
-      cy.get('#SubmitLogin > span')
+      cy.get('#passwd').type('senhafonfon')
+      cy.get('#SubmitLogin > span').click()
 
       cy.get('.lnk_wishlist > a > span').click('center')    // Entra nas listas de desejos da conta.
 
       cy.get('#wishlist_50513 > [style="width:200px;"] > a').click()    // Seleciona lista de desejos.
 
       // Altera as informações.
-      cy.get('#quantity_1_1').type('3')
-      cy.get('#priority_1_1').select('High')
+      cy.contains('#quantity').type('3', {backspace: 1})
+      cy.contains('#priority').select('High')
 
       cy.get('.btn_action > .btn > span')   // Salva as informações.
 
@@ -129,31 +130,32 @@ context('ListadeDesejos', () => {
       
       cy.get('a.login').click() // Realiza click que direciona para a página de cadastro/login.
 
-      // Realiza login login.
+      // Realiza login.
       cy.get('#email').type('joao.jvfh@outlook.com')
-      cy.get('#passwd').type('herculano23')
-      cy.get('#SubmitLogin > span')
+      cy.get('#passwd').type('senhafonfon')
+      cy.get('#SubmitLogin > span').click()
 
       cy.get('.lnk_wishlist > a > span').click('center')    // Entra nas listas de desejos da conta.
 
-      cy.get('#wishlist_50513 > [style="width:200px;"] > a').click()    // Seleciona lista de desejos.
+      cy.get('[style="width:200px;"] > a').click()    // Seleciona lista de desejos.
 
-      cy.get('.icon-remove-sign').click()   // Deleta o produto.
+      cy.contains('#wlp > .row > :nth-child(2) > .product_infos > .lnkdel > .icon-remove-sign').click()   // Deleta o produto.
 
     })
 
-    it('CT 08 - Deletar lista de desejos', () => {
+    // Deve ser testado separadamente.
+    it.skip('CT 08 - Deletar lista de desejos', () => {
       
       cy.get('a.login').click() // Realiza click que direciona para a página de cadastro/login.
 
-      // Realiza login login.
+      // Realiza login.
       cy.get('#email').type('joao.jvfh@outlook.com')
-      cy.get('#passwd').type('herculano23')
-      cy.get('#SubmitLogin > span')
+      cy.get('#passwd').type('senhafonfon')
+      cy.get('#SubmitLogin > span').click()
 
       cy.get('.lnk_wishlist > a > span').click('center')    // Entra na lista de desejos.
 
-      cy.get('.icon-remove').click()    // Remove a lista de desejos
+      cy.get('.icon-remove').click({ multiple: true })    // Remove a lista de desejos
 
       // Confirma se o post foi executado com sucesso.
       cy.intercept('POST', 'http://automationpractice.com/index.php?fc=module&module=blockwishlist&controller=mywishlist&rand=1658947885828&deleted=1&id_wishlist=50514&_=1658947179188',
